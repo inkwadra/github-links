@@ -4,7 +4,7 @@ An [Inkdrop](https://www.inkdrop.app) plugin that renders bare GitHub URLs in th
 rich references: an [Octicon](https://primer.style/octicons), the item's title and its state,
 fetched from the GitHub API.
 
-![An Inkdrop note in split view: GitHub URLs in the editor on the left, rendered with Octicons, titles and state colours in the preview on the right](assets/screenshot.png)
+![An Inkdrop note in split view: GitHub URLs in the editor on the left, rendered with Octicons, titles and state colours in the preview on the right](https://raw.githubusercontent.com/inkwadra/github-links/main/assets/screenshot.png)
 
 Paste `https://github.com/primer/octicons/issues/1383` into a note, and the preview shows
 "Investigate publish workflow failure #1383" with a purple closed-issue icon instead of the raw URL.
