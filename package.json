@@ -6,7 +6,7 @@
     "menus",
     "styles"
   ],
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Render GitHub links in the preview as rich references with Octicons",
   "keywords": [
     "github",
@@ -16,7 +16,7 @@
     "pull-requests",
     "preview"
   ],
-  "repository": "https://github.com/inkdropapp/inkdrop-github-links",
+  "repository": "https://github.com/inkwadra/github-links",
   "license": "MIT",
   "styleSheets": [
     "github-links.css"
