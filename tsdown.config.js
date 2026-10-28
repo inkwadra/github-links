@@ -1,0 +1,25 @@
+import { defineConfig } from 'tsdown'
+
+export default defineConfig({
+  entry: ['src/index.ts'],
+  outDir: 'lib',
+  format: ['cjs'],
+  minify: true,
+  sourcemap: true,
+  clean: true,
+  outExtensions: () => ({ js: '.js' }),
+  treeshake: true,
+  deps: {
+    neverBundle: [
+      'react',
+      'react/jsx-runtime',
+      'inkdrop',
+      'event-kit',
+      'inkdrop-model',
+      'react-redux'
+    ],
+    // Octokit and Octicons are devDependencies bundled into lib/, so nothing
+    // has to be installed alongside the plugin at runtime.
+    onlyBundle: false
+  }
+})

@@ -1,0 +1,18 @@
+{
+  "menu": [
+    {
+      "label": "Plugins",
+      "submenu": [
+        {
+          "label": "GitHub Links",
+          "submenu": [
+            {
+              "label": "Refresh GitHub Links",
+              "command": "github-links:refresh"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

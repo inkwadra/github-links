@@ -1,0 +1,48 @@
+/* GitHub links in the preview: an Octicon, the title and a muted reference.
+ * Colours come from Inkdrop's design tokens so they follow the active theme. */
+
+.github-link {
+  text-decoration: none;
+}
+
+.github-link:hover .github-link-title {
+  text-decoration: underline;
+}
+
+.github-link-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  overflow: visible;
+}
+
+.github-link-suffix {
+  color: hsl(var(--hsl-neutral-500));
+  font-weight: normal;
+}
+
+.github-link-suffix.is-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+/* State colours, as on github.com */
+.github-link.is-open .github-link-icon {
+  color: var(--color-green-500);
+}
+
+.github-link.is-done .github-link-icon {
+  color: var(--color-purple-500);
+}
+
+.github-link.is-closed .github-link-icon {
+  color: var(--color-red-500);
+}
+
+.github-link.is-muted .github-link-icon {
+  color: var(--color-neutral-500);
+}
+
+.github-link.is-loading .github-link-icon {
+  opacity: 0.5;
+}
