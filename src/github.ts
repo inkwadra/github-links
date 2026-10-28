@@ -166,10 +166,11 @@ export class GithubClient {
           // Repositories with issues disabled answer 410 even for pull requests
           if (asRequestError(error).status !== 410) throw error
         }
-        const { data } = await octokit.request(
-          'GET /repos/{owner}/{repo}/pulls/{pull_number}',
-          { owner: ref.owner, repo: ref.repo, pull_number: ref.number }
-        )
+        const { data } = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
+          owner: ref.owner,
+          repo: ref.repo,
+          pull_number: ref.number
+        })
         return {
           type: 'issue',
           title: data.title,
@@ -184,10 +185,11 @@ export class GithubClient {
         if (!this.hasToken) {
           throw new Error('Fetching discussions requires a GitHub token')
         }
-        const { repository } = await octokit.graphql<DiscussionQueryResult>(
-          DISCUSSION_QUERY,
-          { owner: ref.owner, repo: ref.repo, number: ref.number }
-        )
+        const { repository } = await octokit.graphql<DiscussionQueryResult>(DISCUSSION_QUERY, {
+          owner: ref.owner,
+          repo: ref.repo,
+          number: ref.number
+        })
         const discussion = repository?.discussion
         if (!discussion) throw Object.assign(new Error('Not found'), { status: 404 })
         return { type: 'discussion', ...discussion }
@@ -201,10 +203,11 @@ export class GithubClient {
         return { type: 'commit', sha: data.sha, message: data.commit.message }
       }
       case 'release': {
-        const { data } = await octokit.request(
-          'GET /repos/{owner}/{repo}/releases/tags/{tag}',
-          { owner: ref.owner, repo: ref.repo, tag: ref.tag }
-        )
+        const { data } = await octokit.request('GET /repos/{owner}/{repo}/releases/tags/{tag}', {
+          owner: ref.owner,
+          repo: ref.repo,
+          tag: ref.tag
+        })
         return { type: 'release', name: data.name, prerelease: data.prerelease }
       }
     }

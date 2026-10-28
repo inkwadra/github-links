@@ -46,7 +46,13 @@ export function createGithubLink(
   Original: ElementType<AnchorProps>,
   RendererContext: Context<MarkdownRendererContextType>
 ) {
-  function GithubRefLink({ githubRef, linkProps }: { githubRef: GithubRef; linkProps: AnchorProps }) {
+  function GithubRefLink({
+    githubRef,
+    linkProps
+  }: {
+    githubRef: GithubRef
+    linkProps: AnchorProps
+  }) {
     const fetchable = isFetchable(githubRef) ? githubRef : null
     const key = fetchable && resourceKey(fetchable)
     // Links without an API resource (files, trees) only follow display changes
@@ -66,9 +72,7 @@ export function createGithubLink(
     })
 
     // Another plugin's wrapper can keep rendering this after deactivation
-    const view = display.enabled
-      ? describe(githubRef, entry?.data, display.showRepoName)
-      : null
+    const view = display.enabled ? describe(githubRef, entry?.data, display.showRepoName) : null
     if (!view) return <Original {...linkProps} />
 
     const loading = !!key && !entry?.data && (!entry || entry.loading)
@@ -103,8 +107,7 @@ export function createGithubLink(
     const printMode = useContext(RendererContext)?.printMode
     const { href, children } = props
     // Exports are rendered once, without waiting for API responses
-    const githubRef =
-      !printMode && href && isBareLink(href, children) ? parseGithubUrl(href) : null
+    const githubRef = !printMode && href && isBareLink(href, children) ? parseGithubUrl(href) : null
     if (!githubRef) return <Original {...props} />
     return <GithubRefLink githubRef={githubRef} linkProps={props} />
   }

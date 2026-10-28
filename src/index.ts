@@ -13,7 +13,7 @@ class InkdropPlugin implements IInkdropPlugin {
     token: {
       title: 'GitHub access token',
       description:
-        'Optional personal access token (read-only access is enough). Raises the API rate limit from 60 to 5,000 requests per hour and is required for private repositories and discussions. Stored in plain text in Inkdrop\'s config file.',
+        "Optional personal access token (read-only access is enough). Raises the API rate limit from 60 to 5,000 requests per hour and is required for private repositories and discussions. Stored in plain text in Inkdrop's config file.",
       type: 'string',
       default: '',
       order: 1
@@ -54,7 +54,8 @@ class InkdropPlugin implements IInkdropPlugin {
     }
     const notifyTokenRejected = () => {
       env.notifications.addWarning('GitHub access token was rejected', {
-        detail: 'GitHub links are not being updated. The token in the github-links plugin settings may have expired or been revoked.',
+        detail:
+          'GitHub links are not being updated. The token in the github-links plugin settings may have expired or been revoked.',
         dismissable: true
       })
     }

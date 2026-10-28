@@ -27,6 +27,10 @@
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
@@ -35,6 +39,8 @@
     "@primer/octicons-react": "^19.42.0",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
+    "oxfmt": "^0.75.0",
+    "oxlint": "^1.90.0",
     "tsdown": "^0.23.1",
     "typescript": "^7.0.2"
   }

@@ -121,11 +121,7 @@ export function parseGithubUrl(href: string): GithubRef | null {
     .map(segment => safeDecode(decodeURIComponent, segment))
   const hash = url.hash.slice(1)
 
-  if (
-    !owner ||
-    !OWNER_RE.test(owner) ||
-    RESERVED_OWNERS.has(owner.toLowerCase())
-  ) {
+  if (!owner || !OWNER_RE.test(owner) || RESERVED_OWNERS.has(owner.toLowerCase())) {
     return null
   }
   if (!rawRepo) return { kind: 'user', owner }
